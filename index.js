@@ -30,18 +30,8 @@ $(document).ready(function(){
     let li = $(`<li id=${taskId}></li>`)
     let p = $(`<p>${taskName}</p>`)
     let divBtns = $(`<div class="buttons"></div>`)
-    let deleteBtn = $(`<button class="delete-btn">Delete</button>`).on('click', function(event){
-        let taskId = $(event.target).parent().parent().attr('id')
-        $("#modal-dialog").css({display : "block"})
-        $("#dialog-content").empty()
-        $("#dialog-content").append(createModalContent('delete'))
-
-        $(".accept").on('click', function(){
-            deleteTask(taskId)
-            $("#modal-dialog").css({display: "none"})
-        })
-    })
-    let editBtn =  $(`<button class="edit-btn">Edit</button>`)
+    let deleteBtn = $(`<button class="delete-btn">Delete</button>`).on('click', function(event){deleteConfirmation(event)})
+    let editBtn =  $(`<button class="edit-btn">Edit</button>`).on('click', function(event){editFormDialog(event)})
     let completeBtn =  $(`<button class="complete-btn">Complete</button>`)
     $(divBtns).append(deleteBtn)
     $(divBtns).append(editBtn)
@@ -65,15 +55,28 @@ $(document).ready(function(){
     let taskLists = JSON.parse(sessionStorage.getItem('taskLists'))
     if(taskLists.notImportant.some(task => task.taskId === taskId)){
         let task = taskLists.notImportant.find(task => task.taskId === taskId)
-        console.log(taskLists.notImportant)
         taskLists.notImportant.splice(taskLists.notImportant.indexOf(task), 1)
-        console.log(taskLists.notImportant)
     }
-    // if(taskLists.notImportant.some(task => task.taskId === taskId)){
-    //     taskLists.notImportant = taskLists.notImportant.filter(task => task.taskId !== taskId)
-    // }else if(taskLists.important.some(task => task.taskId === taskId)){
-    //     taskLists.important = taskLists.important.filter(task => task.taskId !== taskId)
-    // }
+    else if(taskLists.important.some(task => task.taskId === taskId)){
+        let task = taskLists.important.find(task => task.taskId === taskId)
+        taskLists.important.splice(taskLists.important.indexOf(task), 1)
+    }
+    sessionStorage.setItem('taskLists', JSON.stringify(taskLists))
+    populateLists(taskLists)
+   }
+
+   function editTask(taskId, updatedName){
+    let taskLists = JSON.parse(sessionStorage.getItem('taskLists'))
+    if(taskLists.notImportant.some(task => task.taskId === taskId)){
+        let task = taskLists.notImportant.find(task => task.taskId === taskId)
+        let updatedTask = {...task, taskName: updatedName}
+        taskLists.notImportant.splice(taskLists.notImportant.indexOf(task), 1, updatedTask)
+    }
+    else if(taskLists.important.some(task => task.taskId === taskId)){
+        let task = taskLists.important.find(task => task.taskId === taskId)
+        let updatedTask = {...task, taskName: updatedName}
+        taskLists.important.splice(taskLists.important.indexOf(task), 1, updatedTask)
+    }
     sessionStorage.setItem('taskLists', JSON.stringify(taskLists))
     populateLists(taskLists)
    }
@@ -107,7 +110,39 @@ $(document).ready(function(){
             </div>
         </div>
         `
+    }else if(action === 'edit'){
+        return `<div class="wrapper">
+            <form class="edit-form">
+                <input type="text" name="taskNameEdit" id="taskNameEdit" />
+                <button class="confirm-edit">Confirm Edit</button>
+                <button class="cancel">Cancel</button>
+            </form>
+        </div>
+        `
     }
+   }
+
+   function deleteConfirmation(event){
+    let taskId = $(event.target).parent().parent().attr('id')
+    $("#modal-dialog").css({display : "block"})
+    $("#dialog-content").empty()
+    $("#dialog-content").append(createModalContent('delete'))
+
+    $(".accept").on('click', function(){
+        deleteTask(taskId)
+        $("#modal-dialog").css({display: "none"})
+    })
+   }
+   function editFormDialog(event){
+    let taskId = $(event.target).parent().parent().attr('id')
+    $("#modal-dialog").css({display : "block"})
+    $("#dialog-content").empty()
+    $("#dialog-content").append(createModalContent('edit'))
+
+    $('.confirm-edit').on('click', function(){
+        editTask(taskId, $('#taskNameEdit').val())
+        $("#modal-dialog").css({display: "none"})
+    })
    }
 })
 
