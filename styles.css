@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/* Typography, body and container*/
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14px;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 3.5rem, 4rem);
+}
+
+label, button, p {
+    font-size: clamp(1rem, 1.5rem, 2.2rem);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: #f3f3f3;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 1em;
+    border-radius: 0.5em;
+    box-shadow: 2px 1px 15px 0px rgba(0,0,0,0.75);
+    gap: 1em;
+    max-width: 60vw;
+}
+
+/* Header */
+
+.todo-header {
+    padding: 1em;
+    box-shadow: 2px 1px 15px 0px rgba(171,164,171,1);
+    border-radius: 0.5em;
+    min-width: 100%;
+    gap: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.heading {
+    text-align: center;
+}
+
+.add-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.add-form fieldset {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    border: none;
+}
+
+.add-form fieldset:first-child input {
+    flex-basis: 60%;
+    padding: 0.3em 1em;
+}
+
+.add-form fieldset div {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}
+
+.add-btn {
+    flex-grow: 0;
+    max-width: 20%;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 0.5em;
+    background: cornflowerblue;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+/* Main */
+
+.todo-main {
+    min-width: 100%;
+    display: flex;
+    gap: 1em;
+}
+
+.todo-main section ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0;
+}
+
+.todo-main section ul li {
+    display: flex;
+    flex-basis: 100%;
+    gap: 3em;
+}
+
+.todo-main section ul li .text {
+    flex-basis: 50%;
+}
+
+.todo-main section ul li .buttons {
+    flex-basis: 50%;
+    display: flex;
+    margin-left: auto;
+    gap: 0.6em;
+    align-items: center;
+    justify-content: center;
+}
