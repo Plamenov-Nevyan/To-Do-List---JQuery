@@ -3,6 +3,7 @@ $(document).ready(function(){
     initSessionValues()
 
     $(".add-btn").on('click', (event) => {createTask(event)})
+   
 
    function createTaskElement(taskName, taskId){
     let li = $(`<li id=${taskId}></li>`)
@@ -74,6 +75,7 @@ $(document).ready(function(){
             taskLists.notImportant = [...taskLists.notImportant, {taskName, taskId}]
         }
         sessionStorage.setItem('taskLists', JSON.stringify(taskLists))
+        populateLists(taskLists)
     }
    }
 
@@ -91,6 +93,7 @@ $(document).ready(function(){
     counter =  Number(JSON.parse(sessionStorage.getItem('completedCounter'))) + 1
     sessionStorage.setItem('completedCounter', JSON.stringify(counter))
     populateLists(taskLists, true)
+    $("#star-svg").show(1000).slideDown(2000).hide(1000)
    }
 
    function createUniqueId(){
@@ -181,6 +184,8 @@ $(document).ready(function(){
         }else {
         populateLists(JSON.parse(sessionStorage.getItem('taskLists')), true)
         }
+
+        $("#star-svg").hide()
    }
 })
 
