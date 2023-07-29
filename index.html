@@ -9,6 +9,12 @@
     <title>To-Do List With JQuery </title>
 </head>
 <body>
+<div id="modal-dialog" class="modal">
+  <div class="modal-content" id="dialog-content">
+    <span class="close">&times;</span>
+
+  </div>
+</div>
     <div class="container">
         <header class="todo-header">
             <div class="heading">
@@ -37,31 +43,13 @@
         </header>
         <main class="todo-main">
             <section class="not-important-tasks">
+                <h4>Not-important tasks</h4>
                 <ul class="not-important-list">
-                    <li>
-                        <p class="text">
-                            Clean room
-                        </p>
-                        <div class="buttons">
-                            <button>Complete</button>
-                            <button>Edit</button>
-                            <button>Delete</button>
-                        </div>
-                    </li>
                 </ul>
             </section>
             <section class="important-tasks">
+                <h4>Important tasks</h4>
                 <ul class="important-list">
-                    <li>
-                        <p class="text-important">
-                            Clean room
-                        </p>
-                        <div class="buttons">
-                            <button>Complete</button>
-                            <button>Edit</button>
-                            <button>Delete</button>
-                        </div>
-                    </li>
                 </ul>
             </section>
         </main>

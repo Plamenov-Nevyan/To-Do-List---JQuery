@@ -39,7 +39,48 @@ body {
     box-shadow: 2px 1px 15px 0px rgba(0,0,0,0.75);
     gap: 1em;
     max-width: 60vw;
+    max-height: fit-content;
 }
+
+/* Modal */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
 
 /* Header */
 
@@ -98,6 +139,11 @@ body {
     min-width: 100%;
     display: flex;
     gap: 1em;
+    height: 60vh;
+}
+
+.todo-main section h4 {
+    text-align: center;
 }
 
 .todo-main section ul {
@@ -106,23 +152,33 @@ body {
     flex-direction: column;
     gap: 1em;
     padding: 0;
+    max-height: 100%;
+    height: 100%;
+    overflow-y: scroll;
 }
 
 .todo-main section ul li {
     display: flex;
-    flex-basis: 100%;
-    gap: 3em;
+    gap: 2em;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .todo-main section ul li .text {
-    flex-basis: 50%;
+    flex-basis: 100%;
 }
 
 .todo-main section ul li .buttons {
-    flex-basis: 50%;
+    flex: 0 1 40%;
     display: flex;
-    margin-left: auto;
     gap: 0.6em;
     align-items: center;
     justify-content: center;
 }
+
+/* .todo-main ul li .actions-content {
+    flex: 1 1 100%;
+    background: aqua;
+    height: 15em;
+} */
