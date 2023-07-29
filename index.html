@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="./index.js"></script>
     <title>To-Do List With JQuery </title>
 </head>
 <body>
@@ -23,11 +24,11 @@
                         <p>Importance:</p>
                        <div>
                             <label>Not important:</label>
-                            <input type="radio" id="importance" name="importance" value="notImportant"/>
+                            <input type="radio" name="importance" value="notImportant" checked/>
                        </div>
                        <div>
                             <label>Important</label>
-                            <input type="radio" id="importance" name="importance" value="important"/>
+                            <input type="radio" name="importance" value="important"/>
                         </div>
                     </fieldset>
                     <button class="add-btn">Add Task</button>
@@ -36,7 +37,7 @@
         </header>
         <main class="todo-main">
             <section class="not-important-tasks">
-                <ul>
+                <ul class="not-important-list">
                     <li>
                         <p class="text">
                             Clean room
@@ -50,7 +51,7 @@
                 </ul>
             </section>
             <section class="important-tasks">
-                <ul>
+                <ul class="important-list">
                     <li>
                         <p class="text-important">
                             Clean room
