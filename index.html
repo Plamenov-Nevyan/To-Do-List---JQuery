@@ -8,6 +8,61 @@
     <title>To-Do List With JQuery </title>
 </head>
 <body>
-    
+    <div class="container">
+        <header class="todo-header">
+            <div class="heading">
+                <h1>To-Do List With JQuery</h1>
+            </div>
+            <div class="add-form-container">
+                <form class="add-form">
+                    <fieldset>
+                        <label for="taskName">Task Name</label>
+                        <input type="text" id="taskName" name="taskName" />
+                    </fieldset>
+                    <fieldset>
+                        <p>Importance:</p>
+                       <div>
+                            <label>Not important:</label>
+                            <input type="radio" id="importance" name="importance" value="notImportant"/>
+                       </div>
+                       <div>
+                            <label>Important</label>
+                            <input type="radio" id="importance" name="importance" value="important"/>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </header>
+        <main class="todo-main">
+            <section class="not-important-tasks">
+                <ul>
+                    <li>
+                        <div class="text">
+                            Clean room
+                        </div>
+                        <div class="buttons">
+                            <button>Complete</button>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section class="important-tasks">
+                <ul>
+                    <li>
+                        <div class="text-important">
+                            Clean room
+                        </div>
+                        <div class="buttons">
+                            <button>Complete</button>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
