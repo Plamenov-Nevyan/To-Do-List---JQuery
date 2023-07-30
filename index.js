@@ -1,12 +1,12 @@
 $(document).ready(function(){
     let counter
     initSessionValues()
+    initDragNDrop()
 
     $(".add-btn").on('click', (event) => {createTask(event)})
-   
 
    function createTaskElement(taskName, taskId){
-    let li = $(`<li id=${taskId}></li>`)
+    let li = $(`<li id=${taskId} draggable="true" class="task-item"></li>`)
     let p = $(`<p>${taskName}</p>`)
     let divBtns = $(`<div class="buttons"></div>`)
     let deleteBtn = $(`<button class="delete-btn">Delete</button>`).on('click', function(event){deleteConfirmation(event)})
@@ -18,16 +18,7 @@ $(document).ready(function(){
 
     $(li).append(p)
     $(li).append(divBtns)
-
     return li
-    //     return `<li id=${taskId}>
-    //     <p class="text">${taskName}</p>
-    //     <div class="buttons">
-    //         <button>Complete</button>
-    //         <button>Edit</button>
-    //         <button class="delete-btn">Delete</button>
-    //     </div>
-    // </li>`
    }
 
    function deleteTask(taskId){
@@ -121,6 +112,8 @@ $(document).ready(function(){
         if(increaseCounter){
             $('.counter').text(`Completed Tasks: ${counter}`)
         }
+
+        initDragNDrop()
    }
 
    function createModalContent(action){
@@ -174,7 +167,6 @@ $(document).ready(function(){
             counter = 0
        }else {
             counter = Number(JSON.parse(sessionStorage.getItem('completedCounter')))
-            console.log(counter)
        }
         if(!sessionStorage.getItem('taskLists')){
             sessionStorage.setItem('taskLists', JSON.stringify({
@@ -187,5 +179,25 @@ $(document).ready(function(){
 
         $("#star-svg").hide()
    }
+
+   function initDragNDrop(){
+        $(".task-item").on('dragstart', (event) => {
+            setTimeout(() => $(event.target).addClass('dragging'), 0)
+        })
+
+        $(".task-item").on('dragend', (event) => {
+            $(event.target).removeClass('dragging')
+        })
+
+        $(".not-important-list, .important-list").on('dragover', (event) => {
+            let draggingEl = [... $('.dragging')][0]
+            const siblings = [...$(".task-item:not(.dragging)")]
+            let nextSibling = siblings.find(sibling => {
+                return event.clientY <= sibling.offsetTop + sibling.offsetHeight / 2
+            })
+            // event.target.insertBefore(draggingEl, nextSibling)
+            $(event.currentTarget).append(draggingEl)
+        })
+    }
 })
 

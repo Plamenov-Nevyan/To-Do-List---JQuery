@@ -160,7 +160,7 @@ body {
 /* Main */
 
 .todo-main {
-    min-width: fit-content;
+    min-width: 100%;
     display: flex;
     gap: 1em;
     flex: 1 1 80%;
@@ -168,6 +168,7 @@ body {
     box-shadow: 2px 1px 15px 0px rgba(171,164,171,1);
     border-radius: 0.5em;
     /* flex-wrap: wrap; */
+    overflow-y: auto;
 }
 
 .todo-main section {
@@ -190,11 +191,13 @@ body {
     flex-direction: column;
     gap: 1em;
     padding: 0;
-    max-height: 30%;
-    overflow-y: auto;
+    max-height: 50%;
+    min-height: 50%;
     margin-top: 1em;
     flex-wrap: nowrap;
-    
+    align-items: center;
+    /* height: 100%; */
+    cursor: move;
 }
 
 .todo-main section ul li {
@@ -211,7 +214,7 @@ body {
 }
 
 .todo-main section ul li .buttons {
-    flex: 0 1 100%;
+    flex: 1 1 100%;
     display: flex;
     gap: 0.6em;
     align-items: center;
