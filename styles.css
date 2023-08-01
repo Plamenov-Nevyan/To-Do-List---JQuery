@@ -16,8 +16,21 @@ h1 {
     font-size: clamp(2.5rem, 3.5rem, 4rem);
 }
 
+h4 {
+    font-size:  clamp(1.3rem, 1.6rem, 1.9rem);
+}
+
 label, button, p {
     font-size: clamp(1rem, 1.5rem, 2.2rem);
+}
+
+input {
+    border-radius: .5em;
+    font-size: clamp(1rem, 1.2rem, 1.6rem);
+}
+
+input:focus {
+    background-color: #dbd8d8;
 }
 
 body {
@@ -64,7 +77,12 @@ body {
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 80%; /* Could be more or less, depending on screen size */
+    width: fit-content;
+    border-radius: .5em;
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
   }
   
   /* The Close Button */
@@ -73,6 +91,7 @@ body {
     float: right;
     font-size: 28px;
     font-weight: bold;
+    margin-left: auto;
   }
   
   .close:hover,
@@ -82,6 +101,84 @@ body {
     cursor: pointer;
   }
 
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  /* Delete confirmation */
+  .wrapper .modal-btns {
+    display: flex;
+    gap: 1em;
+  }
+
+  .wrapper .modal-btns button {
+    flex: 1 1 33%;
+    padding: 0.5em 0.5em;
+    border: 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+  }
+
+  .wrapper .modal-btns button:first-child {
+    background-color: cornflowerblue;
+    color: azure;
+  }
+  .wrapper .modal-btns button:first-child:hover {
+    background-color: rgb(89, 131, 209);
+  }
+
+
+  .wrapper .modal-btns button:last-child{
+    background-color: indianred;
+    color: azure;
+  }
+
+  .wrapper .modal-btns button:last-child:hover {
+    background-color: rgb(162, 74, 74);
+  }
+
+  /* Edit Form */
+
+  .edit-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+
+  .edit-form input {
+    flex: 1 1 100%;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+  }
+
+  .edit-form button {
+    flex: 1 1 33%;
+    border: none;
+  }
+
+  .edit-form > button {
+    background-color: cornflowerblue;
+    color: azure;
+    padding: .5em 1em;
+    border-radius: .5em;
+    cursor: pointer;
+  } 
+
+  .edit-form > button:hover{
+    background-color: rgb(89, 131, 209);
+  }
+
+  .edit-form button:last-child {
+    background-color: indianred;
+    color: azure;
+  }
+
+  .edit-form button:last-child:hover {
+    background-color: rgb(162, 74, 74);
+  }
 
 /* Header */
 
@@ -157,6 +254,10 @@ body {
     cursor: pointer;
 }
 
+.add-btn:hover {
+    background-color: rgb(89, 131, 209);
+}
+
 /* Main */
 
 .todo-main {
@@ -169,6 +270,7 @@ body {
     border-radius: 0.5em;
     /* flex-wrap: wrap; */
     overflow-y: auto;
+    min-height: h0svh;
 }
 
 .todo-main section {
@@ -178,6 +280,10 @@ body {
 
 .todo-main section h4 {
     text-align: center;
+    background-color: cornflowerblue;
+    color: azure;
+    padding: .5em;
+    border-radius: .5em;
 }
 
 .todo-main section h3 {
@@ -209,6 +315,18 @@ body {
     flex-direction: column;
 }
 
+#ul-important li {
+    background-color: yellow;
+    padding: .5em;
+    border-radius: .5em;
+}
+
+#ul-not-important li {
+    background-color: rgb(201, 222, 241);
+    padding: .5em;
+    border-radius: .5em;
+}
+
 .todo-main section ul li .text {
     flex-basis: 100%;
 }
@@ -231,28 +349,34 @@ body {
 }
 
 .todo-main section ul li .buttons button:first-child {
-    background-color: indianred;
+    background-color: #cd5c5c;
     color: azure;
+    box-shadow: 1px -1px 11px 0px rgba(205,92,92,1);
 } 
 
 .todo-main section ul li .buttons button:nth-child(2){
-    background-color: orange;
+    background-color: #ffa500;
     color: azure;
+    box-shadow: 1px -1px 11px 0px rgba(255,165,0,1);
 }
 
 .todo-main section ul li .buttons button:last-child{
-    background-color: limegreen;
+    background-color: #32cd32;
     color: azure;
+    box-shadow: 1px -1px 11px 0px rgba(50,205,50,1);
 }
 
 .todo-main section ul li .buttons button:first-child:hover {
     background-color: rgb(162, 65, 65);
+    box-shadow: none;
 }
 
 .todo-main section ul li .buttons button:nth-child(2):hover {
     background-color: rgb(203, 133, 4);
+    box-shadow: none;
 }
 
 .todo-main section ul li .buttons button:last-child:hover {
     background-color: rgb(36, 159, 36) ;
+    box-shadow: none;
 }
