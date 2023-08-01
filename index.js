@@ -187,16 +187,44 @@ $(document).ready(function(){
 
         $(".task-item").on('dragend', (event) => {
             $(event.target).removeClass('dragging')
+            let taskLists = JSON.parse(sessionStorage.getItem('taskLists'))
+            let taskData = {
+                taskName: $(event.target).children()[0].innerText,
+                taskId: $(event.target).attr('id')
+            }
+            if($(event.target).parent().attr('id') === 'ul-not-important'){
+
+                let task = taskLists.important.find(task => task.id === event.target.id)
+                taskLists.important.splice(taskLists.important.indexOf(task), 1)
+                taskLists.notImportant = [...taskLists.notImportant, taskData]
+
+            }else if($(event.target).parent().attr('id') === 'ul-important') {
+
+                let task = taskLists.notImportant.find(task => task.id === event.target.id)
+                taskLists.notImportant.splice(taskLists.notImportant.indexOf(task), 1)
+                taskLists.important = [...taskLists.important, taskData]
+            }
+
+            sessionStorage.setItem('taskLists', JSON.stringify(taskLists))
+            populateLists(taskLists)
         })
 
         $(".not-important-list, .important-list").on('dragover', (event) => {
+            event.preventDefault()
             let draggingEl = [... $('.dragging')][0]
             const siblings = [...$(".task-item:not(.dragging)")]
             let nextSibling = siblings.find(sibling => {
                 return event.clientY <= sibling.offsetTop + sibling.offsetHeight / 2
             })
             // event.target.insertBefore(draggingEl, nextSibling)
-            $(event.currentTarget).append(draggingEl)
+            $(event.currentTarget).append(draggingEl) 
+           
+            // if($(event.currentTarget).attr('id') === 'ul-not-important'){
+            //     console.log(`aaa`)
+
+            // }else if($(event.currentTarget).attr('id') === 'ul-important') {
+            //     console.log(`bbb`)
+            // }
         })
     }
 })
