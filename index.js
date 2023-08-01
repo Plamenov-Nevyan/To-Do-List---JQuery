@@ -72,6 +72,8 @@ $(document).ready(function(){
         sessionStorage.setItem('taskLists', JSON.stringify(taskLists))
         $("#taskName").val('')
         populateLists(taskLists)
+    }else{
+        showErrorMessage('Please write a name for your task.', 'addForm')
     }
    }
 
@@ -169,12 +171,21 @@ $(document).ready(function(){
     //attach the generated edit form to the modal and add event listeners to the accept and cancel buttons
     let taskId = $(event.target).parent().parent().attr('id')
     $("#modal-dialog").css({display : "block"})
+    let closeBtn = $(".close")
     $("#dialog-content").empty()
+    $("#dialog-content").append(closeBtn)
     $("#dialog-content").append(createModalContent('edit'))
+    $(".close").on('click', () => closeModal())
 
-    $('.confirm-edit').on('click', function(){
-        editTask(taskId, $('#taskNameEdit').val())
-        $("#modal-dialog").css({display: "none"})
+    $('.confirm-edit').on('click', function(event){
+        event.preventDefault()
+        let taskName = $('#taskNameEdit').val()
+        if(taskName !== ''){
+            editTask(taskId, taskName)
+            $("#modal-dialog").css({display: "none"})
+        }else {
+            showErrorMessage('Please write a name for your task.', 'modal')
+        }
     })
 
     $(".cancel").on('click', () => closeModal())
@@ -247,6 +258,15 @@ $(document).ready(function(){
     function closeModal(){
         // Close the modal
         $('#modal-dialog').css({display: 'none'})
+    }
+
+    function showErrorMessage(message, appendTo){
+        let error = $(`<p id="error-alert">${message}</p>`).fadeOut(5000)
+        if(appendTo === 'modal'){
+            $(".modal-content").append(error)
+        }else if(appendTo === 'addForm'){
+            $(".add-form").append(error)
+        }
     }
 })
 

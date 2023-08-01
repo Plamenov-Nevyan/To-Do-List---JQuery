@@ -384,3 +384,10 @@ body {
 .dragging {
     opacity: .5;
 }
+
+#error-alert {
+    color: azure;
+    padding: .5em;
+    border-radius: .5em;
+    background-color: red;
+}
