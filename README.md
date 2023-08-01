@@ -15,7 +15,7 @@ The App offers the following:
 <ul>
   <li>
     <strong>Overall View</strong>
-![image](https://github.com/Plamenov-Nevyan/To-Do-List---JQuery/assets/100707694/06b3d3a4-ebce-42f8-84c9-4d94154e314c)
+    <img src="https://github.com/Plamenov-Nevyan/To-Do-List---JQuery/assets/100707694/06b3d3a4-ebce-42f8-84c9-4d94154e314c" />
   </li>
   <li>
     <strong>Delete Confirmation View</strong>
