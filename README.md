@@ -1,7 +1,7 @@
 # To-Do-List---JQuery
 A simple To-Do List App made with HTML, CSS and JQuery
 # Start Project
-<b>You will need JQuery, JQuery UI (Either through CDN or downloaded locally) and the VS Code extension - Live Server (or any other web development server)</b>
+<b>You will need the VS Code extension - Live Server (or any other web development server) to start the application</b>
 The App offers the following:
 <ul>
   <li>Creating Tasks</li>
