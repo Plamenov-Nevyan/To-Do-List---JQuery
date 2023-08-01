@@ -215,18 +215,22 @@ $(document).ready(function(){
                 taskId: $(event.target).attr('id')
             }
             if($(event.target).parent().attr('id') === 'ul-not-important'){
-
-                let task = taskLists.important.find(task => task.id === event.target.id)
-                taskLists.important.splice(taskLists.important.indexOf(task), 1)
-                taskLists.notImportant = [...taskLists.notImportant, taskData]
+                console.log(taskLists.notImportant)
+                let task = taskLists.important.find(task => task.taskId === taskData.taskId)
+                console.log(taskLists.notImportant)
+                if(!taskLists.notImportant.some(iteratedTask => iteratedTask.taskId === taskData.taskId)){
+                    taskLists.important.splice(taskLists.important.indexOf(task), 1)
+                    taskLists.notImportant = [...taskLists.notImportant, taskData]
+                }
 
             }else if($(event.target).parent().attr('id') === 'ul-important') {
-
-                let task = taskLists.notImportant.find(task => task.id === event.target.id)
-                taskLists.notImportant.splice(taskLists.notImportant.indexOf(task), 1)
-                taskLists.important = [...taskLists.important, taskData]
+                console.log(taskLists)
+                let task = taskLists.notImportant.find(task => task.taskId === taskData.taskId)
+                if(!taskLists.important.some(iteratedTask => iteratedTask.taskId === taskData.taskId)){
+                    taskLists.notImportant.splice(taskLists.notImportant.indexOf(task), 1)
+                    taskLists.important = [...taskLists.important, taskData]
+                }
             }
-
             sessionStorage.setItem('taskLists', JSON.stringify(taskLists))
             populateLists(taskLists)
         })
@@ -235,6 +239,7 @@ $(document).ready(function(){
             //  append the li item with class "dragging" to the list we are currently hovering on
             event.preventDefault()
             let draggingEl = [... $('.dragging')][0]
+            let id = $(".dragging").attr("id")
             $(event.currentTarget).append(draggingEl) 
         })
     }
