@@ -12,10 +12,21 @@ The App offers the following:
   <li>Two categories of important and unimportant tasks, with drag'n drop functionality between them</li>
 </ul>
 <hr/>
-<strong>Overall View</strong>
+<ul>
+  <li>
+    <strong>Overall View</strong>
 ![image](https://github.com/Plamenov-Nevyan/To-Do-List---JQuery/assets/100707694/06b3d3a4-ebce-42f8-84c9-4d94154e314c)
-<strong>Delete Confirmation View</strong>
+  </li>
+  <li>
+    <strong>Delete Confirmation View</strong>
 ![image](https://github.com/Plamenov-Nevyan/To-Do-List---JQuery/assets/100707694/2d9516b3-44e4-4956-b89d-f2cc4772c8a9)
-<strong>Edit Form View</strong>
+  </li>
+  <li>
+    <strong>Edit Form View</strong>
 ![image](https://github.com/Plamenov-Nevyan/To-Do-List---JQuery/assets/100707694/cbe950b8-a251-4dc4-8439-7b5ac9041312)
+  </li>
+</ul>
+
+
+
 
