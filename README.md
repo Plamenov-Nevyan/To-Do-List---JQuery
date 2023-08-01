@@ -19,11 +19,11 @@ The App offers the following:
   </li>
   <li>
     <strong>Delete Confirmation View</strong>
-![image](https://github.com/Plamenov-Nevyan/To-Do-List---JQuery/assets/100707694/2d9516b3-44e4-4956-b89d-f2cc4772c8a9)
+    <img src="https://github.com/Plamenov-Nevyan/To-Do-List---JQuery/assets/100707694/2d9516b3-44e4-4956-b89d-f2cc4772c8a9" />
   </li>
   <li>
     <strong>Edit Form View</strong>
-![image](https://github.com/Plamenov-Nevyan/To-Do-List---JQuery/assets/100707694/cbe950b8-a251-4dc4-8439-7b5ac9041312)
+    <img src="https://github.com/Plamenov-Nevyan/To-Do-List---JQuery/assets/100707694/cbe950b8-a251-4dc4-8439-7b5ac9041312" />
   </li>
 </ul>
 
