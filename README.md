@@ -15,7 +15,7 @@ The App offers the following:
 <ul>
   <li style={display: "flex"; flexDirection: "column";}>
     <strong>Overall View</strong>
-    <img src="https://github.com/Plamenov-Nevyan/To-Do-List---JQuery/assets/100707694/06b3d3a4-ebce-42f8-84c9-4d94154e314c" />
+    <img width=400 height=260 src="https://github.com/Plamenov-Nevyan/To-Do-List---JQuery/assets/100707694/06b3d3a4-ebce-42f8-84c9-4d94154e314c" />
   </li>
   <li style={display: "flex"; flexDirection: "column";}>
     <strong>Delete Confirmation View</strong>
@@ -23,7 +23,7 @@ The App offers the following:
   </li>
   <li style={display: "flex"; flexDirection: "column";}>
     <strong>Edit Form View</strong>
-    <img src="https://github.com/Plamenov-Nevyan/To-Do-List---JQuery/assets/100707694/cbe950b8-a251-4dc4-8439-7b5ac9041312" />
+    <img width=400 height=260 src="https://github.com/Plamenov-Nevyan/To-Do-List---JQuery/assets/100707694/cbe950b8-a251-4dc4-8439-7b5ac9041312" />
   </li>
 </ul>
 
